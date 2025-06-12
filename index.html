@@ -3,19 +3,27 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Custom iPadOS Profile Installer</title>
+<title>Install iPadOS 26 Mobileconfig</title>
 <style>
   body {
+    background: #121212;
+    color: #eee;
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
       Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background: #121212;
-    color: white;
     display: flex;
     flex-direction: column;
-    align-items: center;
     justify-content: center;
+    align-items: center;
     height: 100vh;
     margin: 0;
+  }
+  .container {
+    background: #1c1c1e;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 15px #0a84ffaa;
+    max-width: 360px;
+    text-align: center;
   }
   h1 {
     margin-bottom: 1rem;
@@ -23,11 +31,12 @@
   select, button {
     font-size: 1.2rem;
     padding: 0.5rem 1rem;
-    margin: 0.5rem;
-    border-radius: 8px;
+    margin: 0.7rem 0;
+    border-radius: 10px;
     border: none;
     outline: none;
     cursor: pointer;
+    width: 100%;
   }
   select {
     background: #222;
@@ -36,53 +45,58 @@
   button {
     background: #0a84ff;
     color: white;
-    transition: background 0.3s ease;
+    transition: background-color 0.3s ease;
   }
   button:hover {
     background: #0066ff;
   }
-  .container {
-    background: #1c1c1e;
-    padding: 2rem;
-    border-radius: 16px;
-    box-shadow: 0 0 20px #0a84ffaa;
+  p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #aaa;
   }
 </style>
 </head>
 <body>
   <div class="container">
-    <h1>Choose Your iPadOS Profile</h1>
+    <h1>Welcome to iPadOS 26 Experience</h1>
+    <p>Select your profile style and tap Install to start the setup.</p>
+
     <select id="profileSelect">
       <option value="1.mobileconfig">Solid Icons - iOS 18 Vibe</option>
       <option value="2.mobileconfig">Liquid Glass - iPadOS 26 Vibe</option>
     </select>
-    <br />
+
     <button id="installBtn">Install Profile</button>
+
+    <p><em>After tapping Install, Safari will prompt you to download and install the profile.</em></p>
   </div>
 
 <script>
-  async function downloadAndInstall(filename) {
+  async function downloadProfile(filename) {
     try {
-      // Fetch the mobileconfig file from your server
-      const response = await fetch(filename);
-      if (!response.ok) throw new Error(`Failed to fetch ${filename}`);
+      const res = await fetch(filename);
+      if (!res.ok) throw new Error('Failed to fetch profile');
 
-      const blob = await response.blob();
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
       const link = document.createElement('a');
-      link.href = URL.createObjectURL(blob);
+      link.href = url;
       link.download = filename;
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      URL.revokeObjectURL(url);
     } catch (err) {
-      alert('Error fetching profile: ' + err.message);
+      alert('Error: ' + err.message);
     }
   }
 
   document.getElementById('installBtn').addEventListener('click', () => {
-    const select = document.getElementById('profileSelect');
-    const chosenFile = select.value;
-    downloadAndInstall(chosenFile);
+    const selected = document.getElementById('profileSelect').value;
+    if (confirm(`Do you want to install the profile: ${selected}?`)) {
+      downloadProfile(selected);
+    }
   });
 </script>
 </body>
