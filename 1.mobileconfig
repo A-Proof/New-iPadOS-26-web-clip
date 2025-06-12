@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <!-- Wallpaper -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.mobiledevice.wallpaper</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.wallpaper.ios18</string>
+      <key>PayloadUUID</key>
+      <string>F7D22E20-4D5A-4C78-ABF9-8E3C9A74F567</string>
+      <key>PayloadDisplayName</key>
+      <string>iOS18 Solid Wallpaper</string>
+      <key>DefaultWallpaperImage</key>
+      <data>
+      iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAAGXRFWHRTb2Z0d2Fy
+      ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABxpRE9UAAAAAgAAAAAAAAAAAAAAAP//
+      AAAAAAAAIv+PcIAA0uM0BQAAAABJRU5ErkJggg==
+      </data>
+    </dict>
+
+    <!-- Web Clip 1 -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.webclip1</string>
+      <key>PayloadUUID</key>
+      <string>5E9E9E4B-3E12-4D69-8AA7-58F4A7286D82</string>
+      <key>PayloadDisplayName</key>
+      <string>YouTube</string>
+      <key>URL</key>
+      <string>https://youtube.com/</string>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+      <key>Icon</key>
+      <data>
+      iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAdVBMVEUAAAD//
+      /v//Pv/+/v//P///v///v7///v///v7///v///v7///v7///v7///v///v///v7/
+/v7///v7///v7///v7///v7///v7///v7///v7///v7///v7///v7///v7///v7/
+/v7///v7///v7///v7///v7///v7///v7///v7///v7///v7///v7///v7///v7/
+/v7///v7///v7//9ZTJG4AAAAQXRSTlMAEBAgIDAwQEBAYGBgYGBgYGBgYGBgYGB
+gYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYAABiZ7KnAAAAN0lEQVQY02Ng
+QAHGBoUOJoYGBgYGBgYGBiYGBiZgYmBgaGAoMGJgYGFiZGJgYGAwYGBiYGBgYg
+AAiwEL3W2fAGwAAAABJRU5ErkJggg==
+      </data>
+    </dict>
+
+    <!-- Web Clip 2 -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.webclip2</string>
+      <key>PayloadUUID</key>
+      <string>7B8F1E45-961E-4F19-9823-66D9B3C4F1FA</string>
+      <key>PayloadDisplayName</key>
+      <string>Twitter</string>
+      <key>URL</key>
+      <string>https://twitter.com/</string>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+    </dict>
+
+    <!-- Web Clip 3 -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.webclip3</string>
+      <key>PayloadUUID</key>
+      <string>9CDE34B1-8B9F-4F4A-A82B-BD7F6F5B345C</string>
+      <key>PayloadDisplayName</key>
+      <string>Reddit</string>
+      <key>URL</key>
+      <string>https://reddit.com/</string>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+    </dict>
+  </array>
+
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+  <key>PayloadIdentifier</key>
+  <string>com.yourdomain.profile.ios18</string>
+  <key>PayloadUUID</key>
+  <string>DD1C76A3-7C0A-4667-88BD-C1A0E0F7BC42</string>
+  <key>PayloadDisplayName</key>
+  <string>iOS 18 Solid Icon Profile</string>
+</dict>
+</plist>
