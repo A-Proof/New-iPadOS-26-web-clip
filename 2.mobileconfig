@@ -1,99 +1,103 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
-<plist version="1.0">
-<dict>
-  <key>PayloadContent</key>
-  <array>
-    <!-- Wallpaper -->
-    <dict>
-      <key>PayloadType</key>
-      <string>com.apple.mobiledevice.wallpaper</string>
-      <key>PayloadVersion</key>
-      <integer>1</integer>
-      <key>PayloadIdentifier</key>
-      <string>com.yourdomain.wallpaper.ipados26</string>
-      <key>PayloadUUID</key>
-      <string>AE8C4729-D9A2-4B8B-B8A7-9C2D6BB12F98</string>
-      <key>PayloadDisplayName</key>
-      <string>iPadOS26 Liquid Wallpaper</string>
-      <key>DefaultWallpaperImage</key>
-      <data>
-      iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAAGXRFWHRTb2Z0d2Fy
-      ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABxpRE9UAAAAAgAAAAAAAAAAAAAAAP//
-      AAAAAAAAIv+PcIAA0uM0BQAAAABJRU5ErkJggg==
-      </data>
-    </dict>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Install iPadOS 26 Mobileconfig</title>
+<style>
+  body {
+    background: #121212;
+    color: #eee;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
+      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+  }
+  .container {
+    background: #1c1c1e;
+    padding: 2rem;
+    border-radius: 16px;
+    box-shadow: 0 0 15px #0a84ffaa;
+    max-width: 360px;
+    text-align: center;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  select, button {
+    font-size: 1.2rem;
+    padding: 0.5rem 1rem;
+    margin: 0.7rem 0;
+    border-radius: 10px;
+    border: none;
+    outline: none;
+    cursor: pointer;
+    width: 100%;
+  }
+  select {
+    background: #222;
+    color: white;
+  }
+  button {
+    background: #0a84ff;
+    color: white;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #0066ff;
+  }
+  p {
+    font-size: 0.9rem;
+    margin-top: 1rem;
+    color: #aaa;
+  }
+</style>
+</head>
+<body>
+  <div class="container">
+    <h1>Welcome to iPadOS 26 Experience</h1>
+    <p>Select your profile style and tap Install to start the setup.</p>
 
-    <!-- Web Clip 1 -->
-    <dict>
-      <key>PayloadType</key>
-      <string>com.apple.webClip.managed</string>
-      <key>PayloadVersion</key>
-      <integer>1</integer>
-      <key>PayloadIdentifier</key>
-      <string>com.yourdomain.webclip1</string>
-      <key>PayloadUUID</key>
-      <string>6F9E1E7C-1A55-4D49-A8E5-5344B8A3E762</string>
-      <key>PayloadDisplayName</key>
-      <string>Instagram</string>
-      <key>URL</key>
-      <string>https://instagram.com/</string>
-      <key>IsRemovable</key>
-      <true/>
-      <key>FullScreen</key>
-      <true/>
-    </dict>
+    <select id="profileSelect">
+      <option value="1.mobileconfig">Solid Icons - iOS 18 Vibe</option>
+      <option value="2.mobileconfig">Liquid Glass - iPadOS 26 Vibe</option>
+    </select>
 
-    <!-- Web Clip 2 -->
-    <dict>
-      <key>PayloadType</key>
-      <string>com.apple.webClip.managed</string>
-      <key>PayloadVersion</key>
-      <integer>1</integer>
-      <key>PayloadIdentifier</key>
-      <string>com.yourdomain.webclip2</string>
-      <key>PayloadUUID</key>
-      <string>2F7C0E41-17A4-46A2-B432-2331DF5BDA0D</string>
-      <key>PayloadDisplayName</key>
-      <string>Facebook</string>
-      <key>URL</key>
-      <string>https://facebook.com/</string>
-      <key>IsRemovable</key>
-      <true/>
-      <key>FullScreen</key>
-      <true/>
-    </dict>
+    <button id="installBtn">Install Profile</button>
 
-    <!-- Web Clip 3 -->
-    <dict>
-      <key>PayloadType</key>
-      <string>com.apple.webClip.managed</string>
-      <key>PayloadVersion</key>
-      <integer>1</integer>
-      <key>PayloadIdentifier</key>
-      <string>com.yourdomain.webclip3</string>
-      <key>PayloadUUID</key>
-      <string>BD7F3C44-8A41-4F67-9B6A-234D0E6C451F</string>
-      <key>PayloadDisplayName</key>
-      <string>TikTok</string>
-      <key>URL</key>
-      <string>https://tiktok.com/</string>
-      <key>IsRemovable</key>
-      <true/>
-      <key>FullScreen</key>
-      <true/>
-    </dict>
-  </array>
+    <p><em>After tapping Install, Safari will prompt you to download and install the profile.</em></p>
+  </div>
 
-  <key>PayloadType</key>
-  <string>Configuration</string>
-  <key>PayloadVersion</key>
-  <integer>1</integer>
-  <key>PayloadIdentifier</key>
-  <string>com.yourdomain.profile.ipados26</string>
-  <key>PayloadUUID</key>
-  <string>BBF7A930-9A4F-45E2-8E15-21B7F7C582AF</string>
-  <key>PayloadDisplayName</key>
-  <string>iPadOS 26 Liquid Glass Profile</string>
-</dict>
-</plist>
+<script>
+  async function downloadProfile(filename) {
+    try {
+      const res = await fetch(filename);
+      if (!res.ok) throw new Error('Failed to fetch profile');
+
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const link = document.createElement('a');
+      link.href = url;
+      link.download = filename;
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+      URL.revokeObjectURL(url);
+    } catch (err) {
+      alert('Error: ' + err.message);
+    }
+  }
+
+  document.getElementById('installBtn').addEventListener('click', () => {
+    const selected = document.getElementById('profileSelect').value;
+    if (confirm(`Do you want to install the profile: ${selected}?`)) {
+      downloadProfile(selected);
+    }
+  });
+</script>
+</body>
+</html>
