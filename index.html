@@ -3,42 +3,177 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>iPadOS 26 Developer Beta</title>
+<title>Install iPadOS 26 Custom Profile</title>
 <style>
   body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-      Ubuntu, Cantarell, "Open Sans", "Helvetica Neue", sans-serif;
-    background-color: #f9f9fb;
-    color: #1d1d1f;
+    background: linear-gradient(135deg, #2d3436, #000);
+    color: #fff;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     text-align: center;
-    padding: 50px;
-  }
-  h1 {
-    font-weight: 600;
-  }
-  p {
-    font-size: 18px;
-    max-width: 400px;
-    margin: 0 auto 20px;
-    line-height: 1.5;
+    padding: 3rem;
   }
   button {
-    background-color: #007aff;
+    background: #0984e3;
     border: none;
+    padding: 1.5rem 3rem;
+    font-size: 1.5rem;
+    font-weight: 700;
     border-radius: 12px;
     color: white;
-    font-size: 18px;
-    padding: 12px 24px;
     cursor: pointer;
+    box-shadow: 0 6px 12px rgba(9, 132, 227, 0.5);
+    transition: background 0.3s ease;
   }
   button:hover {
-    background-color: #005bb5;
+    background: #74b9ff;
+  }
+  h1 {
+    margin-bottom: 1rem;
+  }
+  p {
+    margin-bottom: 3rem;
+    font-size: 1.1rem;
+    opacity: 0.8;
   }
 </style>
 </head>
 <body>
-<h1>iPadOS 26 Developer Beta</h1>
-<p>Your device is ready to install the latest iPadOS 26 developer beta. When Apple releases the update, you’ll see it here automatically.</p>
-<button onclick="alert('This is a demo! Real beta updates come from Apple.')">Check for Updates</button>
+
+<h1>iPadOS 26 Custom Profile</h1>
+<p>Tap the button below to install a custom profile that sets a wallpaper and adds popular app web clips — all embedded and removable.</p>
+<button id="installBtn">Install Profile</button>
+
+<script>
+  // Base64 encoded .mobileconfig (same as previous answer's full profile)
+  const base64MobileConfig = `
+PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPERMSVNUIFBMRVNQ
+VVhEUyAiLS8vQXBwbGUvL0RUIDEucHwiCiAgImh0dHA6Ly93d3cuYXBwbGUuY29tL0RU
+RHMvcHJvcGVydHlMaXN0LTEuMC5kdGQiPgo8cGxpc3QgdmVyc2lvbj0iMS4wIj4KPGRp
+Y3Q+CiAgICA8a2V5PlBheWxvYWRDb250ZW50PC9rZXk+CiAgICA8YXJyYXk+CgkJPDxk
+aWN0PgoJCTxrZXk+UGF5bG9hZFR5cGU8L2tleT4KCQk8c3RyaW5nPmNvbS5hcHBsZS5t
+b2JpbGVjb25maWcubm90aWZpY2F0aW9uPC9zdHJpbmc+CgkJPGtleT5QYXlsb2FkVmVy
+c2lvbjwva2V5PgoJCTxpbnRlZ2VyPjE8L2ludGVnZXI+CgkJPGtleT5QYXlsb2FkSWRl
+bnRpZmllcjwva2V5PgoJCTxzdHJpbmc+Y29tLmFydGh1ci5pcGFkb3MyNi53YWxscGFw
+ZXI8L3N0cmluZz4KCQk8a2V5PlBheWxvYWRVUIDsMTU5eC9hcz4KCTxkYXRhPgoJCSNp
+VlJPQnJ3MEtHZ29BQUFBUlVFU01EQUFDMUhBd0NBR0ZSUlI1MEU2MDQ5MU5SU1VWT1JL
+NURZSUlJPQ0RKS0RQVDJrQkJaNTEyNzQwRE8xTkpJU1VWT1JLSz09CjwvZGF0YT4KICAg
+ICAgPGtleT5QYXlsb2FkQ29udGVudDwva2V5PgogICAgICA8ZGljdD4KICAgICAgICA8
+a2V5PkxvY2tTY3JlZW48L2tleT4KICAgICAgICA8ZGF0YT4KaVBWTTJ3MEtHZ29BQUFB
+QVVVQUFBQUFBQUNBMUhBd0NBQWdGUlJSUzVNRVk2MTdDM1ErQmRuQjFCSkFTRGNCQzVO
+VkpBQ0w9Cjw
+gICAgICAgICA8L2RhdGE+CiAgICAgICAgPGtleT5Ib21lU2NyZWVuPC9rZXk+CiAgICAg
+ICAgPGRhdGE+CmlQVk0ydzBLR2dvQUFBQUFBVVVBRkJBQUFBQUNBMUhBd0NBZ0ZSUkVT
+T01ZWjYwREJSQ1lNQlZTSUZPUVhBRFBBQ0s9Cjw8L2RhdGE+CiAgICAgIDwvZGljdD4K
+ICAgIDwvZGljdD4KCiAgICA8ZGljdD4KICAgICAgICA8a2V5PlBheWxvYWRUeXBlPC9r
+ZXk+CiAgICAgICAgPHN0cmluZz5jb20uYXBwbGUud2ViQ2xp
+cC5tYW5hZ2VkPC9zdHJpbmc+CiAgICAgICAgPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5
+PgogICAgICA
+gICA8aW50ZWdlcj4xPC9pbnRlZ2VyPgogICAgICAgIDxrZXk+UGF5bG9hZElkZW50aWZp
+ZXI8L2tleT4KICAgICAg
+ICA8c3RyaW5nPmNvbS5hcnRodXIuaXBhZG9zMjYud2ViY2xpcC55b3V0dWJlPC9zdHJp
+bmc+CiAgICAgICAgPGtleT5QYXlsb2FkRGlzcGxheU5hbWU8L2tleT4KICAgICAgICA8
+c3RyaW5nPllvdVR1YmU8L3N0cmluZz4KICAgICAgICA8S
+WxhYmVsPllvdVR1YmU8L0xhYmVsPgogICAgICAgIDxVUkw+aHR0cHM6Ly93d3cueW91
+dHViZS5jb20vPC9VUkw+CiAgICAgICAgPEZ1bGxTY3JlZW48
+L3RydWU+CiAgICAgICAgPElzUmVtb3ZhYmxlPjx0cnVlLz4K
+ICAgICAgICA8UHJlY29tcG9zZWQ+PHRydWU+PC9wcmVjb21w
+b3NlZD4KICAgICAgICA8SWNvbj48ZGF0YT4KaVZCT1J3MEtH
+Z29BQUFBUlVFU01EQUFDMUhBd0NBR0ZSUlI1MEU2MDQ5MU5S
+UlN
+VVk9SSz1EWklJUk9DSkRKRFBUMmtCQlo1MTI3NDBETzFO
+SklTVVZPUktLPT0KPC9kYXRhPgoJPC9JY29uPgoJPC9kaWN0
+PgoKICAgIDwvZGljdD4KCiAgICA8ZGljdD4KICAgICAgICA8
+a2V5PlBheWxvYWRUeXBlPC9rZXk+CiAgICAgICAgPHN0cmlu
+Zz5jb20uYXBwbGUud2ViQ2xp
+cC5tYW5hZ2VkPC9zdHJpbmc+CiAgICAgICAgPGtleT5QYXlsb2FkVmVyc2lvbjwva2V5
+PgogICAgICA
+gICA8aW50ZWdlcj4xPC9pbnRlZ2VyPgogICAgICAgIDxrZXk+
+UGF5bG9hZElkZW50aWZpZXI8L2tleT4KICAgICAgICA8c3Ry
+aW5nPmNvbS5hcnRodXIuaXBhZG9zMjYud2ViY2xpcC50aWt0
+b2s8L3N0cmluZz4KICAgICAgICA8a2V5PlBheWxvYWREaXNw
+bGF5TmFtZTwva2V5PgogICAgICAgIDxzdHJpbmc+VGlrVG9r
+PC9zdHJpbmc+CiAgICAgICAgPExhYmVsPlRpa1Rva288L0xh
+YmVsPgogICAgICAgIDxVUkw+aHR0cHM6Ly93d3cudGlrdG9r
+LmNvbS88L1VSTD4KICAgICAgICA8RnVsbFNjcmVlbi90cnVl
+PgogICAgICAgIDxJc1JlbW92YWJsZT90cnVlLz4KICAgICAg
+ICA8UHJlY29tcG9zZWQ+dHJ1ZTwvUHJlY29tcG9zZWQ+CiAg
+ICAgICAgPEljb24+PGRhdGE+
+aVZCT1J3MEtHZ29BQUFBVVVB
+RkJBREFBQUFBQ0ExSGF3Q0FnRlJSUkUzTTV
+ZZzYxN0MzUStCZG5CMUJ
+KQVNEYkJDNU5WSkFDbD09CjwvZGF0YT4KICAgICAgICA8L0ljb24+
+CiAgICA8L2RpY3Q+CgogICAgPC9kaWN0PgoKICAgIDxkaWN0Pgog
+ICAgICAgIDxrZXk+UGF5bG9hZFR5cGU8L2tleT4KICAgICAgICA8
+c3RyaW5nPmNvbS5hcHBsZS53ZWJDbGlwLm1hbmFnZWQ8L3N0cmlu
+Zz4KICAgICAgICA8a2V5PlBheWxvYWRWZXJzaW9uPC9rZXk+CiAg
+ICAgICAgPGludGVnZXI+MTwvaW50ZWdlcj4KICAgICAgICA8a2V5
+PlBheWxvYWRJZGVudGlmaWVyPC9rZXk+CiAgICAgICAgPHN0cmlu
+Zz5jb20uYXJ0aHVyLmlwYWRvczI2LndlYmNsaXAuSW5zdGFncmFt
+PC9zdHJpbmc+CiAgICAgICAgPGtleT5QYXlsb2FkRGlzcGxheU5h
+bWU8L2tleT4KICAgICAgICA8c3RyaW5nPkluc3RhZ3JhbTwvc3Ry
+aW5nPgogICAgICAgIDxMYWJlbD5JbnN0YWdyYW08L0xhYmVsPgog
+ICAgICAgIDxVUkw+aHR0cHM6Ly93d3cuaW5zdGFncmFtLmNvbS88
+L1VSTAogICAgICAgIDxGdWxsc2NyZWVuPjx0cnVlLz4KICAgICAg
+ICA8SXNSZW1vdmFibGU+dHJ1ZTwvSXNSZW1vdmFibGU+CiAgICAg
+ICAgPFByZWNvbXBvc2VkPjx0cnVlPjwvcHJlY29tcG9zZWQ+CiAg
+ICAgICAgPEljb24+PGRhdGE+aVZCT1J3MEtHZ29BQUFBVVVBRkJB
+REFBQUFBQ0ExSGF3Q0FnRlJSUkUzTTVZZzYxN0MzUStCZG5CMUJK
+QVNEYkJDNU5WSkFDbD09CjwvZGF0YT4KICAgICAgICA8L0ljb24+
+CiAgICA8L2RpY3Q+CgogICAgPC9kaWN0PgoKICAgIDxkaWN0Pgog
+ICAgICAgIDxrZXk+UGF5bG9hZFR5cGU8L2tleT4KICAgICAgICA8
+c3RyaW5nPmNvbS5hcHBsZS53ZWJDbGlwLm1hbmFnZWQ8L3N0cmlu
+Zz4KICAgICAgICA8a2V5PlBheWxvYWRWZXJzaW9uPC9rZXk+CiAg
+ICAgICAgPGludGVnZXI+MTwvaW50ZWdlcj4KICAgICAgICA8a2V5
+PlBheWxvYWRJZGVudGlmaWVyPC9rZXk+CiAgICAgICAgPHN0cmlu
+Zz5jb20uYXJ0aHVyLmlwYWRvczI2LndlYmNsaXAuc3BvdGlmeTwv
+c3RyaW5nPgogICAgICAgIDxrZXk+UGF5bG9hZERpc3BsYXlOYW1l
+PC9rZXk+CiAgICAgICAgPHN0cmluZz5TcG90aWZ5PC9zdHJpbmc+
+CiAgICAgICAgPExhYmVsPlNwb3RpZnk8L0xhYmVsPgogICAgICAg
+IDxVUkw+aHR0cHM6Ly9vcGVuLnNwb3RpZnkubmV0LzwvVVJMPgoJ
+ICAgICAgPEZ1bGxTY3JlZW4vdHJ1ZT4KICAgICAgICA8SXNSZW1v
+dmFibGU+dHJ1ZTwvSXNSZW1vdmFibGU+CiAgICAgICAgPFByZWNv
+bXBvc2VkPjx0cnVlPjwvcHJlY29tcG9zZWQ+CiAgICAgICAgPElj
+b24+PGRhdGE+aVZCT1J3MEtHZ29BQUFBVVVBRkJBREFBQUFBQ0Ex
+SGF3Q0FnRlJSUkUzTTVZZzYxN0MzUStCZG5CMUJKQVNEYkJDNU5W
+SkFDbD09CjwvZGF0YT4KICAgICAgICA8L0ljb24+CiAgICA8L2Rp
+Y3Q+CgogIDwvYXJyYXk+CgogIDxrZXk+UGF5bG9hZERpc3BsYXlO
+YW1lPC9rZXk+CgogIDxzdHJpbmc+aVBhZFBPUyAyNiBDdXN0b20g
+UHJvZmlsZTwvc3RyaW5nPgoKICA8a2V5PlBheWxvYWQxZGVudGlm
+aWVyPC9rZXk+CgogIDxzdHJpbmc+Y29tLmFydGh1ci5pcGFkb3My
+Ni5jdXN0b21wcm9maWxlPC9zdHJpbmc+CgogIDxrZXk+UGF5bG9h
+ZFJlbW92YWxEaXNhbGxvd2VkPC9rZXk+CgogIDxmbHNlPjwvZmxz
+ZT4KCiAgPGtleT5QYXlsb2FkVHlwZTwva2V5PgoKICA8c3RyaW5n
+PkNvbmZpZ3VyYXRpb248L3N0cmluZz4KCiAgPGtleT5QYXlsb2Fk
+VVVJRDwva2V5PgoKICA8c3RyaW5nPkY5MkIyNDRFLTg4OUEtNEQy
+RS05QjMxLUM1MkU5RDI1QjBDMTwvc3RyaW5nPgoKICA8a2V5PlBh
+eWxvYWRWZXJzaW9uPC9rZXk+CgogIDxpbnRlZ2VyPjE8L2ludGVn
+ZXI+CgogPC9kaWN0Pgo8L3BsaXN0Pg==
+  `.trim();
+
+  function base64ToBlob(base64, mime) {
+    const byteChars = atob(base64);
+    const byteNumbers = new Array(byteChars.length);
+    for (let i = 0; i < byteChars.length; i++) {
+      byteNumbers[i] = byteChars.charCodeAt(i);
+    }
+    const byteArray = new Uint8Array(byteNumbers);
+    return new Blob([byteArray], { type: mime });
+  }
+
+  document.getElementById('installBtn').addEventListener('click', () => {
+    // Clean base64 string from whitespace/newlines
+    const cleanedBase64 = base64MobileConfig.replace(/\s+/g, '');
+    const blob = base64ToBlob(cleanedBase64, 'application/x-apple-aspen-config');
+
+    // Create temporary link to trigger download
+    const link = document.createElement('a');
+    link.href = URL.createObjectURL(blob);
+    link.download = 'custom_iPadOS26.mobileconfig';
+    document.body.appendChild(link);
+    link.click();
+    document.body.removeChild(link);
+  });
+</script>
+
 </body>
 </html>
