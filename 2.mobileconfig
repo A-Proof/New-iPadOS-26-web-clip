@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>PayloadContent</key>
+  <array>
+    <!-- Wallpaper -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.mobiledevice.wallpaper</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.wallpaper.ipados26</string>
+      <key>PayloadUUID</key>
+      <string>AE8C4729-D9A2-4B8B-B8A7-9C2D6BB12F98</string>
+      <key>PayloadDisplayName</key>
+      <string>iPadOS26 Liquid Wallpaper</string>
+      <key>DefaultWallpaperImage</key>
+      <data>
+      iVBORw0KGgoAAAANSUhEUgAAAQAAAAEACAIAAADTED8xAAAAGXRFWHRTb2Z0d2Fy
+      ZQBBZG9iZSBJbWFnZVJlYWR5ccllPAAAABxpRE9UAAAAAgAAAAAAAAAAAAAAAP//
+      AAAAAAAAIv+PcIAA0uM0BQAAAABJRU5ErkJggg==
+      </data>
+    </dict>
+
+    <!-- Web Clip 1 -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.webclip1</string>
+      <key>PayloadUUID</key>
+      <string>6F9E1E7C-1A55-4D49-A8E5-5344B8A3E762</string>
+      <key>PayloadDisplayName</key>
+      <string>Instagram</string>
+      <key>URL</key>
+      <string>https://instagram.com/</string>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+    </dict>
+
+    <!-- Web Clip 2 -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.webclip2</string>
+      <key>PayloadUUID</key>
+      <string>2F7C0E41-17A4-46A2-B432-2331DF5BDA0D</string>
+      <key>PayloadDisplayName</key>
+      <string>Facebook</string>
+      <key>URL</key>
+      <string>https://facebook.com/</string>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+    </dict>
+
+    <!-- Web Clip 3 -->
+    <dict>
+      <key>PayloadType</key>
+      <string>com.apple.webClip.managed</string>
+      <key>PayloadVersion</key>
+      <integer>1</integer>
+      <key>PayloadIdentifier</key>
+      <string>com.yourdomain.webclip3</string>
+      <key>PayloadUUID</key>
+      <string>BD7F3C44-8A41-4F67-9B6A-234D0E6C451F</string>
+      <key>PayloadDisplayName</key>
+      <string>TikTok</string>
+      <key>URL</key>
+      <string>https://tiktok.com/</string>
+      <key>IsRemovable</key>
+      <true/>
+      <key>FullScreen</key>
+      <true/>
+    </dict>
+  </array>
+
+  <key>PayloadType</key>
+  <string>Configuration</string>
+  <key>PayloadVersion</key>
+  <integer>1</integer>
+  <key>PayloadIdentifier</key>
+  <string>com.yourdomain.profile.ipados26</string>
+  <key>PayloadUUID</key>
+  <string>BBF7A930-9A4F-45E2-8E15-21B7F7C582AF</string>
+  <key>PayloadDisplayName</key>
+  <string>iPadOS 26 Liquid Glass Profile</string>
+</dict>
+</plist>
